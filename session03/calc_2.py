@@ -3,7 +3,7 @@ from cmath import sqrt
 # ex02-01
 r = 5
 pi = 3.1415926
-volume = (4 / 3) * pi * sqrt(r)
+volume = (4 / 3) * pi * r ** 3
 print(f"The volume of a sphere with radius 5 is {volume:.2f} cubic cm.")
 
 # ex02-02
