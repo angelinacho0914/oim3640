@@ -7,8 +7,8 @@ volume = (4 / 3) * pi * r ** 3
 print(f"The volume of a sphere with radius 5 is {volume:.2f} cubic cm.")
 
 # ex02-02
-total = 24.95 * 0.6 + 3 + 0.75 * 59
-print(f"The wholesale cost for 60 copies is ${total}.")
+total = 24.95 * 0.6 * 60 + 3 + 0.75 * 59
+print(f"The wholesale cost for 60 copies is ${total:.2f}.")
 
 # ex02-03
 # leaves at 6:52am and run 1 mile at an easy pace (8:15 per mile),  then 3 miles at tempo (7:12 per mile)
