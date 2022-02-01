@@ -47,9 +47,10 @@ not (4 > 3 and 100 > 6)
 
 # 3.1
 import time
+SECONDS_IN_A_DAY = 86400
 
 t = time.localtime()
-days = time.time() / 86400
+days = time.time() / SECONDS_IN_A_DAY
 hours = t.tm_hour
 minutes = t.tm_min
 seconds = t.tm_sec
