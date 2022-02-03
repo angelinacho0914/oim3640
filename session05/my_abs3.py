@@ -3,6 +3,7 @@
 
 
 def my_abs(x):
+    '''Only return the abs value of any given int and float numbers'''
     if isinstance(x, int) == True or isinstance(x, float) == True:
         if x < 0:
             x = -x

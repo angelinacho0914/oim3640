@@ -5,6 +5,7 @@ def quadratic(a, b, c):
     if a == 0:
         print("This is not a quadratic solution.")
     else:
+        # Credits to stackoverflow for the calculation part
         check1 = b * b - 4 * a * c  # Calculate discriminant
         check2 = math.sqrt(abs(check1))
 

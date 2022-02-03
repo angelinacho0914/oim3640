@@ -1,4 +1,5 @@
 def my_abs(x):
+    '''return the absolute value of a given number'''
     if x < 0:
         x = -x
     else:
