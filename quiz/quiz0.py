@@ -12,16 +12,17 @@ Notice:
 """
 
 
-def weight(n):
+def weight():
     """This function ask for a parameter for a weight on earth and prints the equivalent weight on moon."""
     # function weight
     #   moon weight equals to earth weight * 0.165
     #   print moon weight
+    n = int(input("Enter weight on Earth: "))
     moon = n * 0.165
-    print(f"The weight of the object in moon is {moon} .")
+    print(f"The weight of the object in moon is {moon}.")
 
 
-# weight(40)
+weight()
 
 
 """
@@ -55,7 +56,7 @@ def planet_weight(weight, planet):
         return "I don't know."
 
 
-print(planet_weight(44, "moon"))
-print(planet_weight(44, "mars"))
-print(planet_weight(44, "jupiter"))
-print(planet_weight(44, "something"))
+# print(planet_weight(44, "moon"))
+# print(planet_weight(44, "mars"))
+# print(planet_weight(44, "jupiter"))
+# print(planet_weight(44, "something"))
