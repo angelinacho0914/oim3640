@@ -16,6 +16,9 @@ def check_fermat(a, b, c, n):
 # A function that prompts the user to input values for a, b,
 # c, n, converts them to int, and uses check_fermat to check.
 def fermat():
+    '''
+    This function takes 4 user inputs and checks whether Fermat is wrong or not.
+    '''
     a = int(input("Enter value 1: "))
     b = int(input("Enter value 2: "))
     c = int(input("Enter value 3: "))
@@ -44,9 +47,9 @@ def get_bmi_category():
     bmi = calculate_bmi(weight, height)
     if bmi <= 18.5:
         return "Underweight"
-    elif 18.5 <= bmi <= 24.9:
+    elif 18.5 < bmi <= 24.9:
         return "Normal weight"
-    elif 25 <= bmi <= 29.9:
+    elif 25 < bmi <= 29.9:
         return "Overweight"
     else:
         return "Obesity"

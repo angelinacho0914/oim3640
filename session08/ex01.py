@@ -29,17 +29,13 @@ while iteration < 1001:
 # Calculate the sum of all the odd numbers from 1 to 1000
 num = 0
 for i in range(1000):
-    if i % 2 != 0:
+    if i % 2 == 1:  # This function prints out the sum of odd num from 1 - 1000
         num += i
-    else:
-        i += 1
     print(num)
 
 iteration = 0
 a = 0
 while iteration < 1000:
-    if iteration % 2 != 0:
+    if iteration % 2 == 0:
         a += iteration
-    else:
-        iteration += 1
 print(a)
