@@ -41,3 +41,7 @@ def any_lowercase5(s):
         if not c.islower():
             return False
     return True
+
+print(any_lowercase4('iPAD'))
+print(any_lowercase4('Babson'))
+print(any_lowercase4('python'))
