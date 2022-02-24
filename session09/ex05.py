@@ -26,7 +26,7 @@ def rotate_word(word, n):
 
 def main():
     print(rotate_word('cheer', 7))
-    print(rotate_word('melon', -10))
+    print(rotate_word('melon', -10))    # This actually prints out "c[bed"
 
 
 if __name__ == "__main__":
