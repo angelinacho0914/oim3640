@@ -3,9 +3,9 @@
 
 
 # Assume words.txt is under data folder
-f = open('data/words.txt')
-line = f.readline()
-print(line)
+# f = open('data/words.txt')
+# line = f.readline()
+# print(line)
 
 
 # f = open('data/words.txt')
@@ -38,8 +38,11 @@ def has_no_e(word):
     """
     returns True if the given word doesn’t have the letter "e" in it
     """
-    pass
-
+    for letter in word:
+        if letter.lower() == 'e':
+            return False
+    return True
+    # return 'e' not in word.lower()
 
 # print(has_no_e('Babson'))
 # print(has_no_e('College'))
@@ -50,7 +53,16 @@ def find_words_no_e():
     """
     returns the percentage of the words that don't have the letter "e"
     """
-    pass
+    f = open('data/words.txt')  # Assume words.txt is under data folder
+
+    count = 0
+    count_true = 0
+    for line in f:
+        word = line.strip()
+        if has_no_e(word):
+            count_true += 1
+        count += 1
+    return count_true/count
 
 
 # perc_no_e = find_words_no_e()
