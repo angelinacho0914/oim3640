@@ -14,17 +14,19 @@ def spelling_bee_solver(letter_list, required_letter):
 
     for line in f:
         word = line.strip()
-        if required_letter in word:
-            if word not in letter_list:
-                if len(word) > 3:
-                    if any(x in unused_letters for x in word) == False:
-                        good_words.append(word)
+        if len(word) > 3:
+            if required_letter in word:
+                if word not in letter_list:
+                        if any(x in unused_letters for x in word) == False:
+                            good_words.append(word)
     return good_words
 
 
 
+
+
 def main():
-    list_of_letters = ['w','i','n','p','g','h']
+    list_of_letters = ['w','i','n','p','g','h','o']
     required_letter = 'o'
     print(spelling_bee_solver(list_of_letters, required_letter))
 
