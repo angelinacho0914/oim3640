@@ -52,6 +52,9 @@ def anagrams():
             d[new_word] = w
         if w in d:
             d[sorted(w)]
+    pass
+
+# Will work on this during the break.
             
 
 
