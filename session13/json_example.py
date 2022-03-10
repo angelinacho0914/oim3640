@@ -1,5 +1,6 @@
 import urllib.request
 import json
+# Can import api key that can be put in another file and not push it
 
 APIKEY = 'YOUR_OWN_APIKEY'
 city = 'Wellesley'
