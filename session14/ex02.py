@@ -55,7 +55,10 @@ def anagrams():
     pass
 
 # Will work on this during the break.
-            
+
+# file_to_list
+# word_to_tuple
+# list_to_dict
 
 
 anagrams()
