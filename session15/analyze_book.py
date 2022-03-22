@@ -74,44 +74,51 @@ def print_most_common(hist, num=10):
     hist: histogram (map from word to frequency)
     num: number of words to print
     """
-    pass
+    lst = most_common(hist)
+    print(lst[0])
 
 
 def subtract(d1, d2):
     """Returns a dictionary with all keys that appear in d1 but not d2.
     d1, d2: dictionaries
     """
-    pass
+    d = dict()
+    for word_in_book in d1:
+        print(word_in_book)
+        if word_in_book not in d2:
+            d[word_in_book] = 1
+    return d
 
 
 def random_word(hist):
     """Chooses a random word from a histogram.
     The probability of each word is proportional to its frequency.
     """
-    pass
+    return random.choice(list(hist))
 
 
 def main():
     hist = process_file('data/Pride and Prejudice.txt', skip_header=True)
     # print(hist)
-    print('Total number of words:', total_words(hist))
-    print('Number of different words:', different_words(hist))
+    # print('Total number of words:', total_words(hist))
+    # print('Number of different words:', different_words(hist))
 
-    t = most_common(hist, excluding_stopwords=True)
-    print('The most common words are:')
-    for freq, word in t[0:20]:
-        print(word, '\t', freq)
+    # t = most_common(hist, excluding_stopwords=True)
+    # print('The most common words are:')
+    # for freq, word in t[0:20]:
+    #     print(word, '\t', freq)
+    # print_most_common(hist)
 
-    # words = process_file('words.txt', skip_header=False)
+    # words = process_file('data/words.txt', skip_header=False)
 
     # diff = subtract(hist, words)
     # print("The words in the book that aren't in the word list are:")
     # for word in diff.keys():
     #     print(word, end=' ')
 
-    # print("\n\nHere are some random words from the book")
-    # for i in range(100):
-    #     print(random_word(hist), end=' ')
+    print("\n\nHere are some random words from the book")
+    for i in range(100):
+        print(random_word(hist), end=' ')
 
 
 if __name__ == '__main__':
