@@ -2,7 +2,7 @@ import urllib.request
 import json
 # Can import api key that can be put in another file and not push it
 
-APIKEY = 'YOUR_OWN_APIKEY'
+APIKEY = '394453f30ab7ac7e98a2da05bda886e5'
 city = 'Wellesley'
 country_code = 'us'
 url = f'http://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&APPID={APIKEY}'
