@@ -129,9 +129,13 @@ def print_hist(data):
     """
     data: a dictionary of name: integer pairs
     """
-    d = dict()
-    for person, freq in data:
-        print(person + ": " + "*"*freq)
+    numb = int()
+    for i in data:
+        print(i, end = ': ')
+        numb = int(data[i])
+        for k in range(numb):
+            print("*", end = '')
+        print('')  
 
 
 # When you've completed your function, uncomment the following lines and run this file to test!
