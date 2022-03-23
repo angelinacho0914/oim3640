@@ -23,7 +23,7 @@ def get_current_temp(city, country):
     country_code = country
     url = f'http://api.openweathermap.org/data/2.5/weather?q={city},{country_code}&APPID={APIKEY}'
 
-    print(url)
+    # print(url)
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
@@ -34,7 +34,7 @@ def get_current_temp(city, country):
 
 # When you've completed your function, uncomment the following lines and run this file to test!
 
-print(get_current_temp('Taipei', 'tw'))
+# print(get_current_temp('Taipei', 'tw'))
 
 ## Expected output - of course the temperature in your hometown might be different:
 # 11
@@ -56,12 +56,13 @@ def get_name_list():
     with urllib.request.urlopen(url) as f:
         response_text = f.read().decode('utf-8')
         j = json.loads(response_text)
-        print(j)  # Checking data
+        # print(j)  # Checking data
 
     lst = list()
-    for students in j['students']:
-        if j['name'] not in lst:
-            lst.append(['name'])
+    for i in range(len(j['students'])):
+        person = j.get('students')[i]
+        name_of_student = person.get('name')
+        lst.append(name_of_student)
     return sorted(lst)
 
 
@@ -93,11 +94,17 @@ def simulation(names, num_of_calls):
     num_of_calls: total times of cold-calls in the simulation
     Return: a dictionary of name: integer pairs
     """
-    lst = list()
+    d = dict()
     for i in range(num_of_calls):
         random_name = random.choice(names)
-        lst.append(random_name)
-    return lst
+        if random_name not in d:
+            d[random_name] = 1
+        else:
+            d[random_name] += 1
+    new_dict = dict()
+    for i in sorted(d):
+        new_dict[i] = d[i]
+    return new_dict
 
 
 # When you've completed your function, uncomment the following lines and run this file to test!
@@ -129,9 +136,9 @@ def print_hist(data):
 
 # When you've completed your function, uncomment the following lines and run this file to test!
 
-# name_list = get_name_list()
-# name_dict = simulation(name_list, 200)
-# print_hist(name_dict)
+name_list = get_name_list()
+name_dict = simulation(name_list, 200)
+print_hist(name_dict)
 
 ## Expected output:
 # Alan: *****
