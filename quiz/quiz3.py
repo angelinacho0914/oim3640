@@ -1,3 +1,4 @@
+from lib2to3.pytree import convert
 import urllib.request
 import json
 """
@@ -140,9 +141,9 @@ def print_hist(data):
 
 # When you've completed your function, uncomment the following lines and run this file to test!
 
-name_list = get_name_list()
-name_dict = simulation(name_list, 200)
-print_hist(name_dict)
+# name_list = get_name_list()
+# name_dict = simulation(name_list, 200)
+# print_hist(name_dict)
 
 ## Expected output:
 # Alan: *****
@@ -165,14 +166,19 @@ random.seed(42)
 
 def print_hist_by_number(data):
     """"""
-    pass
+    lst = list()
+    lst = sorted(data.items(), key = lambda x:x[1], reverse = True)
+    new_dict = dict()
+    new_dict = dict(lst)
+    print_hist(new_dict)
+
 
 
 ## When you've completed your function, uncomment the following lines and run this file to test!
 
-# name_list = get_name_list()
-# name_dict = simulation(name_list, 200)
-# print_hist_by_number(name_dict)
+name_list = get_name_list()
+name_dict = simulation(name_list, 200)
+print_hist_by_number(name_dict)
 
 ## Expected output:
 # Jason: ************
