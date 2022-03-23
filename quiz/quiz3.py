@@ -27,13 +27,14 @@ def get_current_temp(city, country):
     f = urllib.request.urlopen(url)
     response_text = f.read().decode('utf-8')
     response_data = json.loads(response_text)
-    print(response_data)
-    # current_temperature = y["temp"]
+    # print(response_data)
+    temp = response_data.get('main')['temp']
+    return temp - 273.15
 
 
 # When you've completed your function, uncomment the following lines and run this file to test!
 
-# print(get_current_temp('Taipei', 'tw'))
+print(get_current_temp('Taipei', 'tw'))
 
 ## Expected output - of course the temperature in your hometown might be different:
 # 11
@@ -66,8 +67,8 @@ def get_name_list():
 
 # When you've completed your function, uncomment the following lines and run this file to test!
 
-names = get_name_list()
-print(names)
+# names = get_name_list()
+# print(names)
 
 ## Expected output:
 # ['Alan', 'Amoy', 'Andrew', 'Angelina', 'Brandon', 'Caroline', 'Changli', 'Daisy', 'Devang', 'Eli', 'Erin', 'Gabriel', 'Helen', 'Henry', 'Jason', 'Julia', 'K', 'Kate', 'Kike', 'Maciej', 'Manan', 'Marshall', 'Martina', 'Max', 'Mel', 'Navin', 'Priyavrat', 'Rafael', 'Runyi', 'Shaan', 'Thomas', 'Tomas', 'Weiye', 'Xavier', 'Xiner', 'Yash', 'Yu', 'Ziya']
