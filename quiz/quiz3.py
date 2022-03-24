@@ -176,9 +176,9 @@ def print_hist_by_number(data):
 
 ## When you've completed your function, uncomment the following lines and run this file to test!
 
-name_list = get_name_list()
-name_dict = simulation(name_list, 200)
-print_hist_by_number(name_dict)
+# name_list = get_name_list()
+# name_dict = simulation(name_list, 200)
+# print_hist_by_number(name_dict)
 
 ## Expected output:
 # Jason: ************
