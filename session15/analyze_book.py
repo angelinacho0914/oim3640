@@ -10,6 +10,7 @@ def process_file(filename, skip_header):
     """
     hist = {}
     fp = open(filename, encoding='UTF8')
+    print(fp)
 
     if skip_header:
         skip_gutenberg_header(fp)
