@@ -7,13 +7,17 @@ def sed(pattern, replace, source, dest):
     source: string filename
     dest: string filename
     """
+    with open(source) as f_read, open(dest, 'w') as f_write:
+        for line in f_read:
+            line = line.replace(pattern, replace)
+            f_write.write(line)
 
 
 def main():
-    pattern = ""
-    replace = ""
-    source = ""
-    dest = ""
+    pattern = "man"
+    replace = "woman"
+    source = "data/dylan.txt"
+    dest = "data/dylan2.txt"
     sed(pattern, replace, source, dest)
 
 
