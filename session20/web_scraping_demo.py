@@ -1,0 +1,1 @@
+# Web scraping is the process of automatically collecting web data with specialized softwarepy
