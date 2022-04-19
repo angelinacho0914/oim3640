@@ -37,7 +37,7 @@ class Team:
         """Return a string representation of this team, including team name and squad."""
         if len(self.squad) > 0:
             team_players = ', '.join(self.squad)
-            return f'{self.name} has {team_players}.'
+            return f'{self.name} has {team_players}. The rating is {self.rating}.'
         else:
             return f'{self.name} has no player yet.' 
 
@@ -48,11 +48,10 @@ class Team:
         """choose one player from PLAYERS and update team's rating which is the average rating of entire current squad.
         player: string
         """
-        new_rating = 0
         self.squad.append(player)
         for p in self.squad:
-            new_rating += PLAYERS[p]
-        self.rating = new_rating/len(self.squad)
+            self.sum_of_ratings += PLAYERS[p]
+        self.rating = self.sum_of_ratings/len(self.squad)
 
 
     def choose_legendary(self, player):
