@@ -12,6 +12,9 @@ class Point:
         '''Return a Point object in a human-readable format.'''
         return f'({self.x}, {self.y})'
 
+    def __repr__(self):
+        return self.__str__
+
     def __add__(self, another_point):
         new_x = self.x + another_point.x
         new_y = self.y + another_point.y
@@ -25,9 +28,11 @@ class Point:
         return self.x == another_point.x
 
     def __gt__(self, another_point):
+        '''Overloading >.'''
         return self.x > another_point.x and self.y > another_point.y
 
     def __contains__(self, value):
+        '''Check whether a given value has a given substring. Overloading in operator.'''
         return value == self.x or value == self.y
 
 

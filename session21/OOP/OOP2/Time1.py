@@ -235,6 +235,16 @@ def mul_time(t1, factor):
     return int_to_time(int(seconds))
 
 
+def race_starts(time, distance):
+    '''
+    Takes a Time object that represents the finishing time in a race, and a number that represents the distance, and returns a Time object that represents the average pace (time per mile).
+    '''
+    average = mul_time(time, (1.0/distance))
+
+    print('The average was %.2d:%.2d:%.2d per mile'
+        % (average.hour, average.minute, average.second))
+
+
 def main():
     # if a movie starts at noon...
     noon_time = Time()
@@ -277,6 +287,8 @@ def main():
 
     print("Time per mile", end=" ")
     print_time(pace)
+
+    print(race_starts(race_time, distance))
 
 
 if __name__ == "__main__":
