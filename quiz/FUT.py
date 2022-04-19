@@ -59,9 +59,8 @@ class Team:
         """choose one player from LEGENDARIES and update team's rating which is the average rating of entire current squad multiplied by legendary's booster.
         player: string
         """
-        sum_rating = 0
         self.squad.append(player)
-        self.sum_of_ratings += LEGENDARIES[player[0]]
+        self.sum_of_ratings += LEGENDARIES[player][0]
         self.rating = self.sum_of_ratings/len(self.squad)
 
 
