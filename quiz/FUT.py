@@ -21,23 +21,48 @@ class Team:
         name: string
         initial_players: a list of strings representing initial players in this team.
         """
-        pass
+        self.name = name
+        if initial_players == None:
+            initial_players = []
+        self.squad = initial_players
+        self.sum_of_ratings = 0
+        if len(initial_players) > 0:
+            for player in initial_players:
+                self.sum_of_ratings += PLAYERS[player]
+            self.rating = self.sum_of_ratings/len(initial_players)
+        else:
+            self.rating = self.sum_of_ratings
 
     def __str__(self):
         """Return a string representation of this team, including team name and squad."""
-        pass
+        if len(self.squad) > 0:
+            team_players = ', '.join(self.squad)
+            return f'{self.name} has {team_players}.'
+        else:
+            return f'{self.name} has no player yet.' 
+
+    def __gt__(self, another_team):
+        return self.rating > another_team.rating
 
     def choose(self, player):
         """choose one player from PLAYERS and update team's rating which is the average rating of entire current squad.
         player: string
         """
-        pass
+        new_rating = 0
+        self.squad.append(player)
+        for p in self.squad:
+            new_rating += PLAYERS[p]
+        self.rating = new_rating/len(self.squad)
+
 
     def choose_legendary(self, player):
         """choose one player from LEGENDARIES and update team's rating which is the average rating of entire current squad multiplied by legendary's booster.
         player: string
         """
-        pass
+        sum_rating = 0
+        self.squad.append(player)
+        self.sum_of_ratings += LEGENDARIES[player[0]]
+        self.rating = self.sum_of_ratings/len(self.squad)
 
 
 #############################################
