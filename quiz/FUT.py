@@ -48,6 +48,7 @@ class Team:
         """choose one player from PLAYERS and update team's rating which is the average rating of entire current squad.
         player: string
         """
+        self.sum_of_ratings = 0
         self.squad.append(player)
         for p in self.squad:
             self.sum_of_ratings += PLAYERS[p]
