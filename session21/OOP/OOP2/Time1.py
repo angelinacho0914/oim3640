@@ -1,3 +1,6 @@
+from xxlimited import foo
+
+
 class Time:
     """Represents the time of day.
 
@@ -15,10 +18,12 @@ def print_time(t):
 
     t: Time object
     """
+    print(f'{foo:t}')
 
 
 def is_after(t1, t2):
     """Returns True if t1 is after t2; false otherwise."""
+    return t1 is t2
 
 
 #######################
