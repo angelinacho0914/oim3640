@@ -61,7 +61,7 @@ class Team:
         """
         self.squad.append(player)
         self.sum_of_ratings += LEGENDARIES[player][0]
-        self.rating = self.sum_of_ratings/len(self.squad)
+        self.rating = self.sum_of_ratings/len(self.squad) * LEGENDARIES[player][1]
 
 
 #############################################
