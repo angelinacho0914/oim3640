@@ -1,6 +1,3 @@
-from xxlimited import foo
-
-
 class Time:
     """Represents the time of day.
 
@@ -18,12 +15,12 @@ def print_time(t):
 
     t: Time object
     """
-    print(f'{foo:t}')
+    print(f'{t.hour:02d}:{t.minute:02d}:{t.second:02d}')
 
 
 def is_after(t1, t2):
     """Returns True if t1 is after t2; false otherwise."""
-    return t1 is t2
+    return (t1.hour > t2.hour or (t1.hour == t2.hour and t1.minute > t2.minute) or (t1.hour == t2.hour and t1.minute == t2.minute and t1.second > t2.second))
 
 
 #######################
@@ -52,6 +49,17 @@ def add_time2(t1, t2):
     returns: Time
     TODO: improve the above function so the minute and second are smaller than 60
     """
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+    if sum.second >= 60:
+        sum.second -= 60
+        sum.minute += 1
+    if sum.minute >= 60:
+        sum.minute -= 60
+        sum.hour += 1
+    return sum
 
 
 # Uncomment below for testing
@@ -97,6 +105,17 @@ def increment_2(time, seconds):
 
     This is a pure function.
     """
+    result = Time()
+    result.hour, result.minute, result.second = time.hour, time.minute, time.second
+    result.second += seconds
+    if time.second >= 60:
+        time.second -= 60
+        time.minute += 1
+
+    if time.minute >= 60:
+        time.minute -= 60
+        time.hour += 1
+    return result
 
 
 #######################
@@ -147,6 +166,8 @@ def substract_time(t1, t2):
 
     returns: Time
     """
+    seconds = time_to_int(t1) - time_to_int(t2)
+    return int_to_time(seconds)
 
 
 #######################
@@ -208,6 +229,10 @@ def add_time3(t1, t2):
 
 def mul_time(t1, factor):
     """Multiplies a Time object by a factor."""
+    if not valid_time(t1):
+        raise ValueError('invalid Time object in mul_time')
+    seconds = time_to_int(t1) * factor
+    return int_to_time(int(seconds))
 
 
 def main():

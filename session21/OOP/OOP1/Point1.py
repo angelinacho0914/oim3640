@@ -18,6 +18,7 @@ import math
 
 
 def print_point(p):
+    '''Print the point in human readable format.'''
     print(f'({p.x},{p.y})')
 
 # print_point(my_point)
@@ -29,12 +30,12 @@ def print_point(p):
 
 
 def distance_between_points(x, y):
-    point1 = Point()
-    # point1.x = x
-    # point1.y = y
-
-    # print(f'({point1.x},{point1.y})')
-    distance = math.sqrt(x**2 + y**2)
+    '''
+    Computes the distance between two Point objects.
+    '''
+    p1_d = y.x - x.x
+    p2_d = y.y - x.y
+    distance = math.sqrt(p1_d**2 + p2_d**2)
     return distance
 
 # print(distance_between_points(3, 4))
@@ -53,6 +54,9 @@ class Rectangle:
 
 
 def find_center(rect):
+    '''
+    Find the center point of a rectagle.
+    '''
     p = Point()
     p.x = rect.corner.x + rect.width/2
     p.y = rect.corner.y + rect.height/2
@@ -94,3 +98,12 @@ def grow_rectangle(rect, dwidth, dheight):
 # Python doesn't know for programmer_defined types, what should be considered equivalent
 # print(p1 is p2)
 # print(p1 == p2)
+
+
+def print_rectangle(rect):
+    '''
+    Print out the width, height, and lower-left corner of the Rectangle.
+    '''
+    print(f'width: {rect.width}, height: {rect.height}')
+    print('the lower-left corner: ')
+    print_point(rect.corner)

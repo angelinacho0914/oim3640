@@ -15,9 +15,9 @@ def point_in_circle(point, circle):
     point: Point object
     circle: Circle object
     """
-    d = distance_between_points(point, circle)
-    print(d)
-    # return true if d <= circle.radius
+    d = distance_between_points(point, circle.center)
+    # print(d)
+    return d <= circle.radius
 
 
 def rect_in_circle(rect, circle):
@@ -53,6 +53,24 @@ def rect_circle_overlap(rect, circle):
     rect: Rectangle object
     circle: Circle object
     """
+    p = copy.copy(rect.corner)
+    # print_point(p)
+    if point_in_circle(p, circle):
+        return True
+
+    p.x += rect.width
+    if point_in_circle(p, circle):
+        return True
+
+    p.y += rect.height
+    if point_in_circle(p, circle):
+        return True
+
+    p.x -= rect.width
+    if point_in_circle(p, circle):
+        return True
+
+    return False
 
 
 def main():
@@ -76,9 +94,9 @@ def main():
     print(circle.center.y)
     print(circle.radius)
 
-    # print(point_in_circle(box.corner, circle))
+    print(point_in_circle(box.corner, circle))
     print(rect_in_circle(box, circle))
-    # print(rect_circle_overlap(box, circle))
+    print(rect_circle_overlap(box, circle))
 
 
 if __name__ == '__main__':
